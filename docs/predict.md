@@ -97,3 +97,27 @@ result = get_sliced_prediction(
 )
 
 ```
+
+- Modify bounding box formatting:
+
+```python
+from sahi.predict import get_sliced_prediction
+from sahi import AutoDetectionModel
+
+# init a model
+detection_model = AutoDetectionModel.from_pretrained(...)
+
+result = predict(
+    image,
+    detection_model,
+    slice_height = 256,
+    slice_width = 256,
+    overlap_height_ratio = 0.2,
+    overlap_width_ratio = 0.2, 
+    visual_hide_conf= True, # Hide confidence values
+    visual_hide_labels= True, # Hide label text
+    visual_bbox_thickness=1, # Modify bounding box thickness
+    
+)
+
+```
